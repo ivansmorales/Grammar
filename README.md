@@ -7,3 +7,6 @@ The grammar will be defined in a txt file. The file shall be defined as follows:
 - The second line indicates the set of terminal symbols separated by commas composed by only one lowercase character.
 - The third line indicates the starting symbol.
 - The following lines indicate the productions of the grammar in the following format
+
+Project developed @ ITESM CCM.
+Computational Maths.
