@@ -90,36 +90,21 @@ public class App extends JFrame {
 		Scanner sc = new Scanner(System.in);
 		JFileChooser jf = new JFileChooser();
 		
-		String aux2 = "";
-
 		int aux = jf.showOpenDialog(null);
 		if (aux == JFileChooser.APPROVE_OPTION) {
 			try {
 				File ff = jf.getSelectedFile();
 				System.out.println("Nombre del archivo: " + ff.getName());
-				String archivo = ff.getName();
-				Scanner s = new Scanner(new File(archivo));
-				while(s.hasNextLine()) {
+				/*
+				* Le pasamos a Scanner el objeto seleccionado que queremos que lea.
+				*/
+ 				Scanner s = new Scanner(ff);
+ 				while(s.hasNextLine()) {
 					System.out.println(s.nextLine());
 				}
-				s.close();
-				//txtB.read(fff, "");
-				/*
-				* Lo que yo buscaba era una forma de usar Scanner con JFileChooser para reutilizar
-				* todo el código del IP.1 Entonces con .getName(), un metodo de FileReader
-				* obtenemos el nombre del archivo a utilizar y asi se lo pasamos a Scanner
-				*/
-				String noTerminales = "";
+				s.close();  
 				
-/* 				noTerminales = s.nextLine();
-				nonTerminalSymbols = new ArrayList<String>();
-				String[] splitStr = noTerminales.split(",");
-				for (int i = 0 ; i < splitStr.length ; i++) {
-					nonTerminalSymbols.add(splitStr[i]);
-					System.out.println(nonTerminalSymbols.get(i));
-				}
-				s.close(); */
-
+				//txtB.read(fff, "");
 			} catch (Exception ex) {
 				// Logger.getLogger(FilesDemo.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -127,20 +112,21 @@ public class App extends JFrame {
 	}
 
 /* 	public static ArrayList<String> getNonTerminalSymbols(String archivo){
-		String estados = "";
+		String noTerminales = "";
 		try {
-		  Scanner s = new Scanner(new File(archivo));
-		  estados = s.nextLine();
-		  states = new ArrayList<String>();
-		  String[] splitStr = estados.split(",");
-		  for (int i = 0 ; i < splitStr.length ; i++) {
-			states.add(splitStr[i]);
-		  }
-		  s.close();
+		  Scanner s = new Scanner();
+		  noTerminales = s.nextLine();
+				nonTerminalSymbols = new ArrayList<String>();
+				String[] splitStr = noTerminales.split(",");
+				for (int i = 0 ; i < splitStr.length ; i++) {
+					nonTerminalSymbols.add(splitStr[i]);
+					System.out.println(nonTerminalSymbols.get(i));
+				}
+				s.close();
 		} catch (FileNotFoundException e) {
 		  System.out.println("File not found.");
 		}
-		return states;
+		return nonTerminalSymbols;
 	}  */
 
 
