@@ -96,26 +96,30 @@ public class App extends JFrame {
 		if (aux == JFileChooser.APPROVE_OPTION) {
 			try {
 				File ff = jf.getSelectedFile();
-				//System.out.println(ff);
-				System.out.println(ff.getName());
+				System.out.println("Nombre del archivo: " + ff.getName());
+				String archivo = ff.getName();
+				Scanner s = new Scanner(new File(archivo));
+				while(s.hasNextLine()) {
+					System.out.println(s.nextLine());
+				}
+				s.close();
+				//txtB.read(fff, "");
 				/*
 				* Lo que yo buscaba era una forma de usar Scanner con JFileChooser para reutilizar
 				* todo el código del IP.1 Entonces con .getName(), un metodo de FileReader
 				* obtenemos el nombre del archivo a utilizar y asi se lo pasamos a Scanner
 				*/
 				String noTerminales = "";
-				Scanner s = new Scanner(new File(ff.getName()));
-				/* Hay que comprobar que si fue leido*/
-				noTerminales = s.nextLine();
+				
+/* 				noTerminales = s.nextLine();
 				nonTerminalSymbols = new ArrayList<String>();
 				String[] splitStr = noTerminales.split(",");
 				for (int i = 0 ; i < splitStr.length ; i++) {
 					nonTerminalSymbols.add(splitStr[i]);
 					System.out.println(nonTerminalSymbols.get(i));
 				}
-				s.close();
+				s.close(); */
 
-				// txtB.read(fff, "");
 			} catch (Exception ex) {
 				// Logger.getLogger(FilesDemo.class.getName()).log(Level.SEVERE, null, ex);
 			}
